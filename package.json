@@ -1,0 +1,17 @@
+{
+  "name": "nepaliroommates",
+  "version": "1.0.0",
+  "description": "An app that lets you find roommates across united states",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Pravesh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "nodemon": "^1.11.0"
+  }
+}
