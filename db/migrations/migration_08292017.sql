@@ -8,17 +8,17 @@ CREATE TABLE IF NOT EXISTS statestable (
 CREATE TABLE IF NOT EXISTS rentaltable (
     id BIGSERIAL PRIMARY KEY,
     title VARCHAR(255),
-    description VARCHAR(1024),
-    bedrooms INTEGER(10),
-    bathrooms INTEGER(10),
+    description TEXT,
+    bedrooms INTEGER,
+    bathrooms INTEGER,
     city VARCHAR(255),
     state_id INTEGER REFERENCES statestable(id),
-    zipcode INTEGER(10),
+    zipcode INTEGER,
     pets VARCHAR(255),
     parking VARCHAR(255),
     heating VARCHAR(255),
     cooling VARCHAR(255),
     availablefrom date,
-    price INTEGER(255),
+    price INTEGER,
     wifi VARCHAR(255)
 );

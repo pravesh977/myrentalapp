@@ -11,7 +11,7 @@ INSERT INTO rentaltable (title, description, bedrooms, bathrooms, city, state_id
         'NO',
         'YES',
         'YES',
-        2017-10-12,
+        '2017-10-12',
         3200,
         'YES'
     ),
@@ -27,7 +27,7 @@ INSERT INTO rentaltable (title, description, bedrooms, bathrooms, city, state_id
         'YES',
         'NO',
         'YES',
-        2017-09-10,
+        '2017-09-10',
         10000,
         'YES'
     );
