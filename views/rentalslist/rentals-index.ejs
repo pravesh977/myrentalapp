@@ -1,1 +1,12 @@
-<p>hello</p>
+<% include ../partials/boilerplate.ejs %>
+
+<h2> fuck you</h2>
+<% rentalsData.forEach((elem) => { %>
+    <div>
+        <p><%= elem.title %></p>
+        <p><%= elem.description %></p>
+        <p>BEDROOMS : <%= elem.bedrooms %> </p>    
+    </div>
+
+<% }) %>
+<% include ../partials/end.ejs %>
