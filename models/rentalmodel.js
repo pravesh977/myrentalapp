@@ -1,7 +1,7 @@
 const db = require('../db/config');
 const RentalsObject = {};
 
-RentalsObject.findall = () => {
+RentalsObject.findAll = () => {
     return db.query('SELECT * FROM rentaltable');
 };
 

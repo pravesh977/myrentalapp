@@ -2,12 +2,19 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = process.env.PORT || 3000;
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 
 const listofrentals = require('./routes/listofrentals');
 const dummyjson = require('./routes/dummyjson');
 app.listen(port);
 
 
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 //the root route
 app.get('/', (req, res)=> {
