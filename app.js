@@ -18,11 +18,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //the root route
-app.get('/', (req, res)=> {
-    res.send("hello and welcome to the new page");
+app.get('/api', (req, res)=> {
+    res.send("hello and welcome to the new page... add instructions for api endpoints");
 });
 
-app.use('/listofrentals', listofrentals);
+app.use('/api/listofrentals', listofrentals);
 app.use('/dummyjson', dummyjson);
 app.get('/anything/:anythingYouWant', function(req, res){
   res.send(

@@ -19,5 +19,15 @@ RentalsObject.create = (createrental) => {
     );
 };
 
+RentalsObject.destroy = (id) => {
+    return db.none(
+        `
+            DELETE FROM rentaltable
+            WHERE id = $1
+        `,
+        [id]
+    );
+};
+
 
 module.exports = RentalsObject;
