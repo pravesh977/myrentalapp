@@ -1,0 +1,18 @@
+.mainnav ul li{
+  list-style-type: none;
+}
+.mainnav {
+  float: right;
+}
+.mainnav ul{
+  display: flex;
+}
+.mainnav ul li a {
+  font-size: 24px;
+  font-weight: bold;
+  color: cyan;
+  margin: 10px;
+}
+.clearingdiv {
+  clear:both;
+}
