@@ -23,16 +23,18 @@ class App extends Component {
                 <ul>
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/contact">Contact</Link></li>
-                  <li><Link to="/about">About</Link></li>
+                  <li><Link to="/about">About</Link></li>  
                 </ul>
               </nav>
               <div className="clearingdiv"></div>
               <main>
+                {/*Routes should always be created at the upper most branch, then imported wherever needed with the <Link> tag */}
                 <Route exact path="/" component={Home} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/about" component={About} />
-              </main>
-            </div>
+                <Route path="/rentals" component={Rentals} />
+              </main>             
+            </div>           
         </Router>
       </div>
     );
