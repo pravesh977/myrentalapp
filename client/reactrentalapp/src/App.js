@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Rentals from './components/Rentals';
 import Home from './components/Home';
 import Contact from './components/Contact';
@@ -9,7 +7,6 @@ import About from './components/About';
 import {
   BrowserRouter as Router,
   Route,
-  Redirect,
   Link
 } from 'react-router-dom';
 

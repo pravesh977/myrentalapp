@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import rentalbackground from '../imagefolder/rentalbackground.jpg';
 import Header from './Header';
 import Footer from './Footer';
-import Rentals from './Rentals';
 import {
   Link
 } from 'react-router-dom';
