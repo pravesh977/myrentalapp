@@ -4,6 +4,8 @@ import Rentals from './components/Rentals';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
+import Idpage from './components/Idpage';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -11,6 +13,7 @@ import {
 } from 'react-router-dom';
 
 class App extends Component {
+
   render() {
     return (
       <div className="mainappdiv">
@@ -29,7 +32,9 @@ class App extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/about" component={About} />
-                <Route path="/rentals" component={Rentals} />
+                <Route exact path="/rentals" component={Rentals} />
+                <Route path="/rentals/:propertyid" component={Idpage} />
+                {/*When you visit /rentals/anything, you will get to Idpage component*/}
               </main>             
             </div>           
         </Router>

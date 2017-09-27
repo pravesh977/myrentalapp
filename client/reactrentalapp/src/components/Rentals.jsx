@@ -1,18 +1,41 @@
 import React, { Component } from 'react';
-
+import RentalsComp from './RentalsComp';
 class Rentals extends Component {
+
+  constructor(props) {
+    super(props);
+      this.state = {
+            completelist : [],
+            apiLoaded: false,
+      }
+      this.conditionalRentList = this.conditionalRentList.bind(this);
+    }
 
 
     componentDidMount() {
     fetch('api/listofrentals')
         .then((response) => {
-            //console.log(response);
+            console.log(response);
             return response.json()
                 })
                 .then((fullrental)=> {
-                 console.log(fullrental, "all the rentals")
+                 //console.log(fullrental, "all the rentals")
+                 this.setState({
+                     completelist: fullrental.rentalsData,
+                     apiLoaded: true,
+                    })
         })
     };
+
+
+    conditionalRentList() {
+        if (this.state.apiLoaded === true) {
+            return <RentalsComp completelist={this.state.completelist} /> 
+        }
+        else {
+            return <p>Loading</p>
+        }
+    }
 
     render() {
         return (
@@ -26,9 +49,7 @@ class Rentals extends Component {
                 </div>
                 <div className="listingdiv">
                     <p>Everything goes here</p>
-                    <ul>
-
-                    </ul>
+                    {this.conditionalRentList()}
                 </div>
             </div>
         )

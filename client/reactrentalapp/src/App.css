@@ -36,3 +36,11 @@
   width: 75%;
   background: green;
 }
+
+.singlecomp {
+  border: 5px black solid;
+}
+
+.singlecomp li {
+  list-style-type: none;
+}
