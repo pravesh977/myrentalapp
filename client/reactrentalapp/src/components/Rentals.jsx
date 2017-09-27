@@ -5,7 +5,7 @@ class Rentals extends Component {
   constructor(props) {
     super(props);
       this.state = {
-            completelist : [],
+            completelist: [],
             apiLoaded: false,
       }
       this.conditionalRentList = this.conditionalRentList.bind(this);
@@ -15,7 +15,7 @@ class Rentals extends Component {
     componentDidMount() {
     fetch('api/listofrentals')
         .then((response) => {
-            console.log(response);
+            //console.log(response);
             return response.json()
                 })
                 .then((fullrental)=> {

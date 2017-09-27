@@ -26,7 +26,7 @@ controller.show = (req, res) => {
             //console.log(singlerental);
             res.json({
                 message: 'okay',
-                singleDataRental: singlerental,
+                rentalsData: singlerental,
                 });
         })
         .catch(err => {
