@@ -5,7 +5,8 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
 import Idpage from './components/Idpage';
-
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
   Route,
@@ -19,13 +20,7 @@ class App extends Component {
       <div className="mainappdiv">
          <Router>
             <div>
-              <nav className="mainnav">
-                <ul>
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to="/contact">Contact</Link></li>
-                  <li><Link to="/about">About</Link></li>  
-                </ul>
-              </nav>
+              <Navigation />
               <div className="clearingdiv"></div>
               <main>
                 {/*Routes should always be created at the upper most branch, then imported wherever needed with the <Link> tag */}
@@ -38,6 +33,7 @@ class App extends Component {
               </main>             
             </div>           
         </Router>
+        <Footer />
       </div>
     );
   }
