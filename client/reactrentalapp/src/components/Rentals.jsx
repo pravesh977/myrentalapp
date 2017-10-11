@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RentalsComp from './RentalsComp';
+import AddListingForm from './AddListingForm';
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { OverlayTrigger } from 'react-bootstrap';
@@ -10,11 +11,99 @@ class Rentals extends Component {
       this.state = {
             completelist: [],
             apiLoaded: false,
-            showModal: false
+            showModal: false,
+            inputTitleValue: '',
+            inputDescriptionValue: '',
+            inputPriceValue: '',
+            inputBedroomsValue: '',
+            inputBathroomsValue: '',
+            inputCityValue: '',
+            inputStateIdValue: '',
+            inputZipcodeValue: '',
+            inputPetsValue: '',
+            inputParkingValue: '',
+            inputHeatingValue: '',
+            inputCoolingValue: '',
+            inputAvailablefromValue: '',
+            inputWifiValue: ''
       }
       this.conditionalRentList = this.conditionalRentList.bind(this);
       this.openModal = this.openModal.bind(this);
       this.closeModal = this.closeModal.bind(this);
+      this.handleTitleChange = this.handleTitleChange.bind(this);
+      this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+      this.handlePriceChange = this.handlePriceChange.bind(this);
+      this.handleBedroomsChange = this.handleBedroomsChange.bind(this);
+      this.handleBathroomsChange = this.handleBathroomsChange.bind(this);
+      this.handleCityChange = this.handleCityChange.bind(this);
+      this.handleStateIdChange = this.handleStateIdChange.bind(this);
+      this.handleZipcodeChange = this.handleZipcodeChange.bind(this);
+      this.handlePetsChange = this.handlePetsChange.bind(this);
+      this.handleParkingChange = this.handleParkingChange.bind(this);
+      this.handleHeatingChange = this.handleHeatingChange.bind(this);
+      this.handleCoolingChange = this.handleCoolingChange.bind(this);
+      this.handleAvailablefromChange = this.handleAvailablefromChange.bind(this);
+      this.handleWifiChange = this.handleWifiChange.bind(this);
+    }
+
+    handleTitleChange(event) {
+        this.setState({inputTitleValue: event.target.value});
+        console.log("changing")
+    }
+
+    handleDescriptionChange(event) {
+        this.setState({inputDescriptionValue: event.target.value});
+        console.log("descr")
+    }
+
+    handlePriceChange(event) {
+        this.setState({inputPriceValue: event.target.value});
+        console.log("this is priceyyyy")
+    }
+
+    handleBedroomsChange(event) {
+        this.setState({inputBedroomsValue: event.target.value});
+    }
+
+    handleBathroomsChange(event) {
+        this.setState({inputBathroomsValue: event.target.value});
+    }
+
+    handleCityChange(event) {
+        this.setState({inputCityValue: event.target.value});
+    }
+
+    handleStateIdChange(event) {
+        this.setState({inputStateIdValue: event.target.value});
+    }
+
+    handleZipcodeChange(event) {
+        this.setState({inputZipcodeValue: event.target.value});
+    }
+
+    handlePetsChange(event) {
+        this.setState({inputPetsValue: event.target.value});
+    }
+
+    handleParkingChange(event) {
+        this.setState({inputParkingValue: event.target.value});
+    }
+
+    handleHeatingChange(event) {
+        this.setState({inputHeatingValue: event.target.value});
+    }
+    
+    handleCoolingChange(event) {
+        this.setState({inputCoolingValue: event.target.value});
+    }
+
+    handleAvailablefromChange(event) {
+        this.setState({inputAvailablefromValue: event.target.value});
+    }
+
+    handleWifiChange(event) {
+        this.setState({inputWifiValue: event.target.value});
+        console.log("this is wifi")
     }
 
     closeModal() {
@@ -23,7 +112,7 @@ class Rentals extends Component {
 
     openModal() {
     this.setState({ showModal: true });
-}
+    }
 
     componentDidMount() {
     fetch('api/listofrentals')
@@ -33,12 +122,18 @@ class Rentals extends Component {
                 })
                 .then((fullrental)=> {
                  //console.log(fullrental, "all the rentals")
-                 this.setState({
-                     completelist: fullrental.rentalsData,
-                     apiLoaded: true,
-                    })
-        })
-    };
+                //  this.setState({
+                //      completelist: fullrental.rentalsData,
+                //      apiLoaded: true,
+                //     })
+                this.setState((prevState) => {
+                    return {
+                        completelist: fullrental.rentalsData,
+                        apiLoaded: true,
+                    }
+                })
+            })
+        };
 
 
     conditionalRentList() {
@@ -49,6 +144,59 @@ class Rentals extends Component {
             return <p>Loading</p>
         }
     }
+//ERROR AT PARKING?
+    handleListingSubmit(event) {
+        event.preventDefault();
+        fetch('api/listofrentals', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                title: event.target.title.value,
+                description: event.target.description.value,
+                price: event.target.price.value,
+                bedrooms: event.target.bedrooms.value,
+                bathrooms: event.target.bathrooms.value,
+                city: event.target.city.value,
+                state_id: event.target.state_id.value,
+                zipcode: event.target.zipcode.value,
+                pets: event.target.pets.value,
+                parking: event.target.parking.value,
+                heating: event.target.heating.value,
+                cooling: event.target.cooling.value,
+                availablefrom: event.target.availablefrom.value,
+                wifi: event.target.wifi.value,
+            })
+        })
+        // .then((response)=>{
+        //     return response.json()
+        // })
+        // .then((responseJson)=>{
+        //     if (responseJson.completelist.id !== undefined) {
+        //         const newListing = {
+        //             title: responseJson.rentalsData.title,
+        //             description: responseJson.rentalsData.description,
+        //             price: responseJson.rentalsData.price,
+        //             bedrooms: responseJson.rentalsData.bedrooms,
+        //             bathrooms: responseJson.rentalsData.bathrooms,
+        //             city: responseJson.rentalsData.city,
+        //             state_id: responseJson.rentalsData.state_id,
+        //             zipcode: responseJson.rentalsData.zipcode,
+        //             pets: responseJson.rentalsData.pets,
+        //             parking: responseJson.rentalsData.parking,
+        //             heating: responseJson.rentalsData.heating,
+        //             cooling: responseJson.rentalsData.cooling,
+        //             availablefrom: responseJson.rentalsData.availablefrom,
+        //             wifi: responseJson.rentalsData.wifi,
+        //             id: responseJson.rentalsData.id
+        //         }
+        //         this.setState((prevState) => {
+        //             return {
+        //                 completelist: prevState.completelist.concat(newListing),
+        //             }
+        //         })
+        //     }
+        // })
+    }
 
     render() {
         return (
@@ -57,138 +205,66 @@ class Rentals extends Component {
                     <form className="searchrentalsform">
                         <input type="text" name="location" placeholder="location" />
                         <input type="text" name="description" placeholder="description" />
-                        <input type="submit" value="Submit" />
-                        <Button
-                            bsStyle="primary"
-                            bsSize="large"
-                            onClick={this.openModal}
-                            >
-                            Launch demo modal
-                        </Button>  
+                        <input type="submit" value="Submit" /> 
                         </form>
                 </div>
                 <div className="listingdiv">
                     <p>Everything goes here</p>
+                    <Button
+                            bsStyle="primary"
+                            bsSize="large"
+                            onClick={this.openModal}
+                            >
+                            Create a Listing
+                        </Button>
                     {this.conditionalRentList()}     
                 </div>
 
-        <Modal show={this.state.showModal} onHide={this.closeModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <h4>Text in a modal</h4>
+            <Modal show={this.state.showModal} onHide={this.closeModal}>
+            <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <h4>Text in a modal</h4>
+                <hr />
+                <AddListingForm 
+                    handleListingSubmit={this.handleListingSubmit}
+                    inputTitleValue={this.state.inputTitleValue}
+                    inputDescriptionValue={this.state.inputDescriptionValue}
+                    inputPriceValue={this.state.inputPriceValue}
+                    inputBedroomsValue={this.state.inputBedroomsValue}
+                    inputBathroomsValue={this.state.inputBathroomsValue}
+                    inputCityValue={this.state.inputCityValue}
+                    inputStateIdValue={this.state.inputStateIdValue}
+                    inputZipcodeValue={this.state.inputZipcodeValue}
+                    inputPetsValue={this.state.inputPetsValue}
+                    inputParkingValue={this.state.inputParkingValue}
+                    inputHeatingValue={this.state.inputHeatingValue}
+                    inputCoolingValue={this.state.inputCoolingValue}
+                    inputAvailablefromValue={this.state.inputAvailablefromValue}
+                    inputWifiValue={this.state.inputWifiValue}
 
-            <hr />
-            <form>
-                <label>Title: *</label><br/><input type="text" name="title" placeholder="Title" required /><br/>
-                <label>Description: *</label><br/><textarea name="description" placeholder="Description of the property" required /><br/>
-                <label>Bedrooms: </label><br/><select name="bedrooms">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">5 +</option>
-                                                </select><br/>
-                <label>Bathrooms: </label><br/><select name="bathrooms">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">5 +</option>
-                                                </select><br/>
-                <label>City: </label><br/><input type="text" name="city" placeholder="Elmhurst" /><br/>
-                <label>State: </label><br/><select name="state_id">
-                                                    <option value="1">Alabama</option>
-                                                    <option value="2">Alaska</option>
-                                                    <option value="3">Arizona</option>
-                                                    <option value="4">Arkansas</option>
-                                                    <option value="5">California</option>
-                                                    <option value="6">Colorado</option>
-                                                    <option value="7">Connecticut</option>
-                                                    <option value="8">Delaware</option>
-                                                    <option value="9">Florida</option>
-                                                    <option value="10">Georgia</option>
-                                                    <option value="11">Hawaii</option>
-                                                    <option value="12">Idaho</option>
-                                                    <option value="13">Illinois</option>
-                                                    <option value="14">Indiana</option>
-                                                    <option value="15">Iowa</option>
-                                                    <option value="16">Kansas</option>
-                                                    <option value="17">Kentucky</option>
-                                                    <option value="18">Louisiana</option>
-                                                    <option value="19">Maine</option>
-                                                    <option value="20">Maryland</option>
-                                                    <option value="21">Massachusetts</option>
-                                                    <option value="22">Michigan</option>
-                                                    <option value="23">Minnesota</option>
-                                                    <option value="24">Mississippi</option>
-                                                    <option value="25">Missouri</option>
-                                                    <option value="26">Montana</option>
-                                                    <option value="27">Nebraska</option>
-                                                    <option value="28">Nevada</option>
-                                                    <option value="29">New Hampshire</option>
-                                                    <option value="30">New Jersey</option>
-                                                    <option value="31">New Mexico</option>
-                                                    <option value="32">New York</option>
-                                                    <option value="33">North Carolina</option>
-                                                    <option value="34">North Dakota</option>
-                                                    <option value="35">Ohio</option>
-                                                    <option value="36">Oklahoma</option>
-                                                    <option value="37">Oregon</option>
-                                                    <option value="38">Pennsylvania</option>
-                                                    <option value="39">Rhode Island</option>
-                                                    <option value="40">South Carolina</option>
-                                                    <option value="41">South Dakota</option>
-                                                    <option value="42">Tennessee</option>
-                                                    <option value="43">Texas</option>
-                                                    <option value="44">Utah</option>
-                                                    <option value="45">Vermont</option>
-                                                    <option value="46">Virginia</option>
-                                                    <option value="47">Washington</option>
-                                                    <option value="48">West Virginia</option>
-                                                    <option value="49">Wisconsin</option>
-                                                    <option value="50">Wyoming</option>
-                                                </select><br/>
-                <label>Zipcode: </label><br/><input type="text" name="zipcode" placeholder="Zipcode" /><br/>
-                <div className="formradio">
-                    <label>Pets Allowed? : </label><br/>
-                    <input type="radio" name="pets" value="yes" /> YES<br/>
-                    <input type="radio" name="pets" value="no" /> NO<br/>
-                </div>
-                <div className="formradio">
-                    <label>Parking availability : </label><br/>
-                    <input type="radio" name="parking" value="yes" /> YES<br/>
-                    <input type="radio" name="parking" value="no" /> NO<br/>
-                </div>
-                <div className="formradio">
-                    <label>Heating availability : </label><br/>
-                    <input type="radio" name="heating" value="yes" /> YES<br/>
-                    <input type="radio" name="heating" value="no" /> NO<br/>
-                </div>
-                <div className="formradio">
-                    <label>Cooling availability : </label><br/>
-                    <input type="radio" name="cooling" value="yes" /> YES<br/>
-                    <input type="radio" name="cooling" value="no" /> NO<br/>
-                </div>
-                <div className="formradio">
-                    <label>Wifi availability : </label><br/>
-                    <input type="radio" name="wifi" value="yes" /> YES<br/>
-                    <input type="radio" name="wifi" value="no" /> NO<br/>
-                </div>
-                <label>Available from : </label><br/><input type="date" /><br/>
-                <label>Price ($) : *</label><br/><input type="number" value="500" required />
-            </form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.closeModal}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-
-
-            </div>
+                    handleTitleChange={this.handleTitleChange}
+                    handleDescriptionChange={this.handleDescriptionChange}
+                    handlePriceChange={this.handlePriceChange}
+                    handleBedroomsChange={this.handleBedroomsChange}
+                    handleBathroomsChange={this.handleBathroomsChange}
+                    handleCityChange={this.handleCityChange}
+                    handleStateIdChange={this.handleStateIdChange}
+                    handleZipcodeChange={this.handleZipcodeChange}
+                    handlePetsChange={this.handlePetsChange}
+                    handleParkingChange={this.handleParkingChange}
+                    handleHeatingChange={this.handleHeatingChange}
+                    handleCoolingChange={this.handleCoolingChange}
+                    handleAvailablefromChange={this.handleAvailablefromChange}
+                    handleWifiChange={this.handleWifiChange}
+                    />
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={this.closeModal}>Close</Button>
+            </Modal.Footer>
+            </Modal>
+        </div>
         )
     }
 }
