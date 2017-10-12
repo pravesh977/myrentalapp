@@ -1,4 +1,4 @@
-INSERT INTO rentaltable (title, description, bedrooms, bathrooms, city, state_id, zipcode, pets, parking, heating, cooling, availablefrom, price, wifi) VALUES
+INSERT INTO rentaltable (title, description, bedrooms, bathrooms, city, state_id, zipcode, pets, heating, cooling, availablefrom, price, wifi) VALUES
     (
         'Beautiful apartment at Elmhurst, Queens',
         'This apartment is located at Elmhurst which is perfect for you if you love chinese food',
@@ -8,7 +8,6 @@ INSERT INTO rentaltable (title, description, bedrooms, bathrooms, city, state_id
         32,
         11373,
         'YES',
-        'NO',
         'YES',
         'YES',
         '2017-10-12',
@@ -23,7 +22,6 @@ INSERT INTO rentaltable (title, description, bedrooms, bathrooms, city, state_id
         'Beverly Hills',
         5,
         90210,
-        'YES',
         'YES',
         'NO',
         'YES',

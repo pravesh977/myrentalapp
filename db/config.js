@@ -3,7 +3,7 @@ const pgp = require('pg-promise')();
 let db;
 if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     db = pgp({
-        database: 'nepaliroomsdb',
+        database: 'nepalirentalsdb',
         port: 5432,
         host: 'localhost',
         user: 'postgres',
@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     });
 } else if (process.env.NODE_ENV === 'production') {
     db = pgp({
-        database: 'nepaliroomsdb_production',
+        database: 'nepalirentalsdb_production',
         port: 5432,
         host: 'localhost',
          user: 'postgres',

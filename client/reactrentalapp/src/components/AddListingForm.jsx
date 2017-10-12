@@ -78,7 +78,14 @@ class AddListingForm extends Component {
                                                         <option value="50">Wyoming</option>
                                                     </select><br/>
                     <label>Zipcode: </label><br/><input type="text" name="zipcode" value={this.props.inputZipcodeValue} onChange={this.props.handleZipcodeChange} placeholder="Zipcode" /><br/>
-                    <div className="formradio">
+                    <label>Pets: *</label><br/><input type="text" name="pets" value={this.props.inputPetsValue} placeholder="Pets" onChange={this.props.handlePetsChange} /><br/>
+                    <label>Heating: *</label><br/><input type="text" name="heating" value={this.props.inputHeatingValue} placeholder="heating" onChange={this.props.handleHeatingChange} /><br/>
+                    <label>Cooling: *</label><br/><input type="text" name="cooling" value={this.props.inputCoolingValue} placeholder="cooling" onChange={this.props.handleCoolingChange} /><br/>
+                    <label>Wifi: *</label><br/><input type="text" name="wifi" value={this.props.inputWifiValue} placeholder="wifi" onChange={this.props.handleWifiChange} /><br/>
+                    <label>Available from ($) : *</label><br/><input name="availablefrom" value={this.props.inputAvailablefromValue} onChange={this.props.handleAvailablefromChange} type="date" /><br/>
+                    <label>Price ($) : *</label><br/><input name="price" value={this.props.inputPriceValue} onChange={this.props.handlePriceChange} type="number" /><br/>
+                    <input type="submit" value="Add property" />
+                    {/*<div className="formradio">
                         <label>Pets Allowed? : </label><br/>
                         <input type="radio" name="pets" value="yes" /> YES<br/>
                         <input type="radio" name="pets" value="no" /> NO<br/>
@@ -105,7 +112,7 @@ class AddListingForm extends Component {
                     </div>
                     <label>Available from : </label><br/><input type="date" name="availablefrom" /><br/>
                     <label>Price ($) : *</label><br/><input name="price" value={this.props.inputPriceValue} onChange={this.props.handlePriceChange} type="number" required /><br/>
-                    <input type="submit" value="Add property" />
+                    <input type="submit" value="Add property" />*/}
                 </form>
             </div>
 

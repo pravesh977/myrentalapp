@@ -12,7 +12,6 @@ class MainSingleComp extends Component {
                 <li>State: {this.props.singleData.state_id}</li>
                 <li>Zipcode: {this.props.singleData.zipcode}</li>
                 <li>Pets Allowed: {this.props.singleData.pets}</li>
-                <li>Parking Available: {this.props.singleData.parking}</li>
                 <li>Heating: {this.props.singleData.heating}</li>
                 <li>:Cooling: {this.props.singleData.cooling}</li>
                 <li>Availability date: {this.props.singleData.availablefrom}</li>

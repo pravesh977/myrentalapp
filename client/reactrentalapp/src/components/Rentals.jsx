@@ -21,7 +21,6 @@ class Rentals extends Component {
             inputStateIdValue: '',
             inputZipcodeValue: '',
             inputPetsValue: '',
-            inputParkingValue: '',
             inputHeatingValue: '',
             inputCoolingValue: '',
             inputAvailablefromValue: '',
@@ -39,7 +38,6 @@ class Rentals extends Component {
       this.handleStateIdChange = this.handleStateIdChange.bind(this);
       this.handleZipcodeChange = this.handleZipcodeChange.bind(this);
       this.handlePetsChange = this.handlePetsChange.bind(this);
-      this.handleParkingChange = this.handleParkingChange.bind(this);
       this.handleHeatingChange = this.handleHeatingChange.bind(this);
       this.handleCoolingChange = this.handleCoolingChange.bind(this);
       this.handleAvailablefromChange = this.handleAvailablefromChange.bind(this);
@@ -83,10 +81,6 @@ class Rentals extends Component {
 
     handlePetsChange(event) {
         this.setState({inputPetsValue: event.target.value});
-    }
-
-    handleParkingChange(event) {
-        this.setState({inputParkingValue: event.target.value});
     }
 
     handleHeatingChange(event) {
@@ -144,7 +138,7 @@ class Rentals extends Component {
             return <p>Loading</p>
         }
     }
-//ERROR AT PARKING?
+
     handleListingSubmit(event) {
         event.preventDefault();
         fetch('api/listofrentals', {
@@ -153,49 +147,19 @@ class Rentals extends Component {
             body: JSON.stringify({
                 title: event.target.title.value,
                 description: event.target.description.value,
-                price: event.target.price.value,
                 bedrooms: event.target.bedrooms.value,
                 bathrooms: event.target.bathrooms.value,
                 city: event.target.city.value,
                 state_id: event.target.state_id.value,
                 zipcode: event.target.zipcode.value,
                 pets: event.target.pets.value,
-                parking: event.target.parking.value,
                 heating: event.target.heating.value,
                 cooling: event.target.cooling.value,
                 availablefrom: event.target.availablefrom.value,
+                price: event.target.price.value,
                 wifi: event.target.wifi.value,
             })
         })
-        // .then((response)=>{
-        //     return response.json()
-        // })
-        // .then((responseJson)=>{
-        //     if (responseJson.completelist.id !== undefined) {
-        //         const newListing = {
-        //             title: responseJson.rentalsData.title,
-        //             description: responseJson.rentalsData.description,
-        //             price: responseJson.rentalsData.price,
-        //             bedrooms: responseJson.rentalsData.bedrooms,
-        //             bathrooms: responseJson.rentalsData.bathrooms,
-        //             city: responseJson.rentalsData.city,
-        //             state_id: responseJson.rentalsData.state_id,
-        //             zipcode: responseJson.rentalsData.zipcode,
-        //             pets: responseJson.rentalsData.pets,
-        //             parking: responseJson.rentalsData.parking,
-        //             heating: responseJson.rentalsData.heating,
-        //             cooling: responseJson.rentalsData.cooling,
-        //             availablefrom: responseJson.rentalsData.availablefrom,
-        //             wifi: responseJson.rentalsData.wifi,
-        //             id: responseJson.rentalsData.id
-        //         }
-        //         this.setState((prevState) => {
-        //             return {
-        //                 completelist: prevState.completelist.concat(newListing),
-        //             }
-        //         })
-        //     }
-        // })
     }
 
     render() {
@@ -238,7 +202,6 @@ class Rentals extends Component {
                     inputStateIdValue={this.state.inputStateIdValue}
                     inputZipcodeValue={this.state.inputZipcodeValue}
                     inputPetsValue={this.state.inputPetsValue}
-                    inputParkingValue={this.state.inputParkingValue}
                     inputHeatingValue={this.state.inputHeatingValue}
                     inputCoolingValue={this.state.inputCoolingValue}
                     inputAvailablefromValue={this.state.inputAvailablefromValue}
@@ -253,7 +216,6 @@ class Rentals extends Component {
                     handleStateIdChange={this.handleStateIdChange}
                     handleZipcodeChange={this.handleZipcodeChange}
                     handlePetsChange={this.handlePetsChange}
-                    handleParkingChange={this.handleParkingChange}
                     handleHeatingChange={this.handleHeatingChange}
                     handleCoolingChange={this.handleCoolingChange}
                     handleAvailablefromChange={this.handleAvailablefromChange}

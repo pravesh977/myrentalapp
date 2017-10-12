@@ -45,7 +45,6 @@ controller.create = (req, res) => {
         state_id: req.body.state_id,
         zipcode: req.body.zipcode,
         pets: req.body.pets,
-        parking: req.body.parking,
         heating: req.body.heating,
         cooling: req.body.cooling,
         availablefrom: req.body.availablefrom,
@@ -57,7 +56,7 @@ controller.create = (req, res) => {
             message: 'okay',
             //what happens if we change rentalsData to singleDataRental or something random like hellodata? try later with react
             //in J's example when she says return the data from the database, maybe she means return the data that was just added?
-            hellodata: jsonAfterAdding
+            jsonAfterAdding: jsonAfterAdding
         });
     }).catch(err => {
             console.log(err);

@@ -12,10 +12,10 @@ RentalsObject.findById = (id) => {
 RentalsObject.create = (createrental) => {
     return db.one (
         `INSERT INTO rentaltable
-        (title, description, bedrooms, bathrooms, city, state_id, zipcode, pets, parking, heating, cooling, availablefrom, price, wifi)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8), $9, $10, $11, $12, $13, $14) RETURNING *
+        (title, description, bedrooms, bathrooms, city, state_id, zipcode, pets, heating, cooling, availablefrom, price, wifi)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8), $9, $10, $11, $12, $13) RETURNING *
         `,
-        [createrental.title, createrental.description, createrental.bedrooms, createrental.bathrooms, createrental.city, createrental.state_id, createrental.zipcode, createrental.pets, createrental.parking, createrental.heating, createrental.cooling, createrental.availablefrom, createrental.price, createrental.wifi]
+        [createrental.title, createrental.description, createrental.bedrooms, createrental.bathrooms, createrental.city, createrental.state_id, createrental.zipcode, createrental.pets, createrental.heating, createrental.cooling, createrental.availablefrom, createrental.price, createrental.wifi]
     );
 };
 
