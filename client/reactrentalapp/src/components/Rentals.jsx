@@ -20,6 +20,7 @@ class Rentals extends Component {
             inputCityValue: '',
             inputStateIdValue: '',
             inputZipcodeValue: '',
+            inputParkingValue: '',
             inputPetsValue: '',
             inputHeatingValue: '',
             inputCoolingValue: '',
@@ -37,6 +38,7 @@ class Rentals extends Component {
       this.handleCityChange = this.handleCityChange.bind(this);
       this.handleStateIdChange = this.handleStateIdChange.bind(this);
       this.handleZipcodeChange = this.handleZipcodeChange.bind(this);
+      this.handleParkingChange = this.handleParkingChange.bind(this);
       this.handlePetsChange = this.handlePetsChange.bind(this);
       this.handleHeatingChange = this.handleHeatingChange.bind(this);
       this.handleCoolingChange = this.handleCoolingChange.bind(this);
@@ -77,6 +79,10 @@ class Rentals extends Component {
 
     handleZipcodeChange(event) {
         this.setState({inputZipcodeValue: event.target.value});
+    }
+
+    handleParkingChange(event) {
+        this.setState({inputParkingValue: event.target.value});
     }
 
     handlePetsChange(event) {
@@ -152,6 +158,7 @@ class Rentals extends Component {
                 city: event.target.city.value,
                 state_id: event.target.state_id.value,
                 zipcode: event.target.zipcode.value,
+                parking: event.target.parking.value,
                 pets: event.target.pets.value,
                 heating: event.target.heating.value,
                 cooling: event.target.cooling.value,
@@ -201,6 +208,7 @@ class Rentals extends Component {
                     inputCityValue={this.state.inputCityValue}
                     inputStateIdValue={this.state.inputStateIdValue}
                     inputZipcodeValue={this.state.inputZipcodeValue}
+                    inputParkingValue={this.state.inputParkingValue}
                     inputPetsValue={this.state.inputPetsValue}
                     inputHeatingValue={this.state.inputHeatingValue}
                     inputCoolingValue={this.state.inputCoolingValue}
@@ -215,6 +223,7 @@ class Rentals extends Component {
                     handleCityChange={this.handleCityChange}
                     handleStateIdChange={this.handleStateIdChange}
                     handleZipcodeChange={this.handleZipcodeChange}
+                    handleParkingChange={this.handleParkingChange}
                     handlePetsChange={this.handlePetsChange}
                     handleHeatingChange={this.handleHeatingChange}
                     handleCoolingChange={this.handleCoolingChange}

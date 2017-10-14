@@ -1,3 +1,3 @@
-\connect nepalirentalsdb;
+\connect rentalsdatabase;
 \i seedstates.sql;
 \i seedrentals.sql;

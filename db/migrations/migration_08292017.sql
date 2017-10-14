@@ -1,4 +1,4 @@
-\connect nepalirentalsdb
+\connect rentalsdatabase
 
 CREATE TABLE IF NOT EXISTS statestable (
     id BIGSERIAL PRIMARY KEY,
@@ -14,10 +14,11 @@ CREATE TABLE IF NOT EXISTS rentaltable (
     city VARCHAR(255),
     state_id INTEGER REFERENCES statestable(id),
     zipcode INTEGER,
+    parking VARCHAR(255),
     pets VARCHAR(255),
     heating VARCHAR(255),
     cooling VARCHAR(255),
-    availablefrom VARCHAR(255),
+    availablefrom date,
     price INTEGER,
     wifi VARCHAR(255)
 );

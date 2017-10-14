@@ -14,6 +14,7 @@ class SingleRental extends Component {
                 <li>City: {this.props.singledatas.city}</li>
                 <li>State: {this.props.singledatas.state_id}</li>
                 <li>Zipcode: {this.props.singledatas.zipcode}</li>
+                <li>Parking Availability: {this.props.singledatas.parking}</li>
                 <li>Pets Allowed: {this.props.singledatas.pets}</li>
                 <li>Heating: {this.props.singledatas.heating}</li>
                 <li>:Cooling: {this.props.singledatas.cooling}</li>

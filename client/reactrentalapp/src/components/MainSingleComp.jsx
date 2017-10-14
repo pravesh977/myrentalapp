@@ -11,13 +11,14 @@ class MainSingleComp extends Component {
                 <li>City: {this.props.singleData.city}</li>
                 <li>State: {this.props.singleData.state_id}</li>
                 <li>Zipcode: {this.props.singleData.zipcode}</li>
+                <li>Parking Availability: {this.props.singleData.parking}</li>
                 <li>Pets Allowed: {this.props.singleData.pets}</li>
                 <li>Heating: {this.props.singleData.heating}</li>
                 <li>:Cooling: {this.props.singleData.cooling}</li>
                 <li>Availability date: {this.props.singleData.availablefrom}</li>
                 <li>Wifi Availability: {this.props.singleData.wifi}</li>
                 <li>Property ID: {this.props.singleData.id}</li>
-                {/*{console.log(this.props.singleData.title, "this works")}*/}
+                {console.log(this.props.singleData.title, "this works")}
             </div>
 
         );

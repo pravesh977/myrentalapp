@@ -44,6 +44,7 @@ controller.create = (req, res) => {
         city: req.body.city,
         state_id: req.body.state_id,
         zipcode: req.body.zipcode,
+        parking: req.body.parking,
         pets: req.body.pets,
         heating: req.body.heating,
         cooling: req.body.cooling,
