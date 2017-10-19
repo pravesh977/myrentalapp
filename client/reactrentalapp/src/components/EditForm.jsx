@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 // import Header from './Header';
 // import Footer from './Footer';
-class AddListingForm extends Component {
+class EditForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.props.handleListingSubmit}>
+                <form onSubmit={this.props.handleEditForm}>
                     <label>Title: *</label><br/><input type="text" name="title" value={this.props.inputTitleValue} placeholder="Title" onChange={this.props.handleTitleChange} pattern=".{20,144}" required title="20 to 144 characters" /><br/>
                     <label>Description: *</label><br/><textarea name="description" value={this.props.inputDescriptionValue} onChange={this.props.handleDescriptionChange} placeholder="Description of the property" pattern=".{20,500}" required title="20 to 500 characters" /><br/>
                     <label>Bedrooms: </label><br/><select name="bedrooms" value={this.props.inputBedroomsValue} onChange={this.props.handleBedroomsChange}>
@@ -120,4 +120,4 @@ class AddListingForm extends Component {
     }
 }
 
-export default AddListingForm;
+export default EditForm;

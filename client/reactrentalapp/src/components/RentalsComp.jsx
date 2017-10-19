@@ -8,7 +8,8 @@ class RentalsComp extends Component {
                 <ul>
                     {this.props.completelist.map((elem)=>{
                         return (
-                            <SingleRental singledatas={elem} key={elem.id}/>
+                            <SingleRental singledatas={elem} key={elem.id}
+                                        handleDeleteButton={this.props.handleDeleteButton} />
                             )
                         })
                     }

@@ -30,6 +30,7 @@ class Rentals extends Component {
       this.conditionalRentList = this.conditionalRentList.bind(this);
       this.openModal = this.openModal.bind(this);
       this.closeModal = this.closeModal.bind(this);
+      this.handleListingSubmit = this.handleListingSubmit.bind(this);
       this.handleTitleChange = this.handleTitleChange.bind(this);
       this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
       this.handlePriceChange = this.handlePriceChange.bind(this);
@@ -44,6 +45,8 @@ class Rentals extends Component {
       this.handleCoolingChange = this.handleCoolingChange.bind(this);
       this.handleAvailablefromChange = this.handleAvailablefromChange.bind(this);
       this.handleWifiChange = this.handleWifiChange.bind(this);
+      this.handleDeleteButton = this.handleDeleteButton.bind(this);
+      this.fetchAllRentals = this.fetchAllRentals.bind(this);
     }
 
     handleTitleChange(event) {
@@ -115,7 +118,11 @@ class Rentals extends Component {
     }
 
     componentDidMount() {
-    fetch('api/listofrentals')
+        this.fetchAllRentals();
+        };
+
+    fetchAllRentals() {
+        fetch('api/listofrentals')
         .then((response) => {
             //console.log(response);
             return response.json()
@@ -126,19 +133,20 @@ class Rentals extends Component {
                 //      completelist: fullrental.rentalsData,
                 //      apiLoaded: true,
                 //     })
-                this.setState((prevState) => {
+                this.setState((prevState)=>{ 
                     return {
                         completelist: fullrental.rentalsData,
                         apiLoaded: true,
                     }
                 })
             })
-        };
-
+    }
 
     conditionalRentList() {
         if (this.state.apiLoaded === true) {
-            return <RentalsComp completelist={this.state.completelist} /> 
+            return <RentalsComp 
+                        completelist={this.state.completelist} 
+                        handleDeleteButton={this.handleDeleteButton}/> 
         }
         else {
             return <p>Loading</p>
@@ -165,7 +173,63 @@ class Rentals extends Component {
                 availablefrom: event.target.availablefrom.value,
                 price: event.target.price.value,
                 wifi: event.target.wifi.value,
-            })
+            }),
+        }).then((response) => {
+      return response.json()
+    })
+     .then((responseJson) => {
+         console.log(responseJson)
+      if (responseJson.jsonAfterAdding.id !== undefined) {
+        const newRental = {
+          title: responseJson.jsonAfterAdding.title,
+          description: responseJson.jsonAfterAdding.description,
+          bedrooms: responseJson.jsonAfterAdding.bedrooms,
+          bathrooms: responseJson.jsonAfterAdding.bathrooms,
+          city: responseJson.jsonAfterAdding.city,
+          state_id: responseJson.jsonAfterAdding.state_id,
+          zipcode: responseJson.jsonAfterAdding.zipcode,
+          parking: responseJson.jsonAfterAdding.parking,
+          pets: responseJson.jsonAfterAdding.pets,
+          heating: responseJson.jsonAfterAdding.heating,
+          cooling: responseJson.jsonAfterAdding.cooling,
+          availablefrom: responseJson.jsonAfterAdding.availablefrom,
+          price: responseJson.jsonAfterAdding.price,
+          wifi: responseJson.jsonAfterAdding.wifi,
+          id: responseJson.jsonAfterAdding.id,
+        }
+        this.setState((prevState) => {
+            return {
+            completelist: prevState.completelist.concat(newRental),
+            inputTitleValue: '',
+            inputDescriptionValue: '',
+            inputPriceValue: '',
+            inputBedroomsValue: '',
+            inputBathroomsValue: '',
+            inputCityValue: '',
+            inputStateIdValue: '',
+            inputZipcodeValue: '',
+            inputParkingValue: '',
+            inputPetsValue: '',
+            inputHeatingValue: '',
+            inputCoolingValue: '',
+            inputAvailablefromValue: '',
+            inputWifiValue: ''
+            } 
+        })
+        {this.closeModal();}
+      } else {
+        console.log('error');
+      }
+    })
+    }
+
+    handleDeleteButton(idToBeDeleted) {
+        fetch(`api/listofrentals/${idToBeDeleted}`, {
+            method: 'DELETE'
+        }).then((resp)=>{
+            if (resp.status===200) {
+                this.fetchAllRentals();
+            }
         })
     }
 

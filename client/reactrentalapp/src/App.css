@@ -41,6 +41,10 @@
   border: 5px black solid;
 }
 
+/*.singlecomp:hover {
+  font-size: 50px;
+}*/
+
 .singlecomp li {
   list-style-type: none;
 }
