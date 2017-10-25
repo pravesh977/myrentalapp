@@ -216,7 +216,9 @@ class Rentals extends Component {
             inputWifiValue: ''
             } 
         })
-        {this.closeModal();}
+        {
+        this.closeModal();
+        }
       } else {
         console.log('error');
       }

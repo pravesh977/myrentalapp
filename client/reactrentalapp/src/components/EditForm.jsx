@@ -112,7 +112,7 @@ class EditForm extends Component {
                     </div>
                     <label>Available from : </label><br/><input type="date" name="availablefrom" /><br/>
                     <label>Price ($) : *</label><br/><input name="price" value={this.props.inputPriceValue} onChange={this.props.handlePriceChange} type="number" required /><br/>
-                    <input type="submit" value="Add property" />
+                    <input type="submit" value="Edit" />
                 </form>
             </div>
 

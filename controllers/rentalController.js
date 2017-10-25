@@ -65,6 +65,50 @@ controller.create = (req, res) => {
  });
 };
 
+controller.edit = (req, res) => {
+    RentalsObject.findById(req.params.id)
+        .then(editedJson => {
+            console.log(editedJson);
+            res.json({
+                message: 'YES OKAY',
+                EditThisId: editedJson,
+                id: req.params.id,
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+ });
+}
+
+controller.update = (req, res) => {
+    RentalsObject.update({
+        title: req.body.title,
+        description: req.body.description,
+        bedrooms: req.body.bedrooms,
+        bathrooms: req.body.bathrooms,
+        city: req.body.city,
+        state_id: req.body.state_id,
+        zipcode: req.body.zipcode,
+        parking: req.body.parking,
+        pets: req.body.pets,
+        heating: req.body.heating,
+        cooling: req.body.cooling,
+        availablefrom: req.body.availablefrom,
+        price: req.body.price,
+        wifi: req.body.wifi
+    }, req.params.id)
+    .then(responseJson => {
+        res.json({
+            message: 'OKAY NOW EDITED',
+            EditedId: responseJson,
+        });
+    }).catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+ });
+};
+
 controller.destroy = (req, res) => {
     RentalsObject.destroy(req.params.id)
         .then(() => {

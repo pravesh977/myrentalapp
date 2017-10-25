@@ -19,6 +19,31 @@ RentalsObject.create = (createrental) => {
     );
 };
 
+RentalsObject.update = (editRental, id) => {
+    return db.one(
+        `
+            UPDATE rentaltable SET
+            title = $1, 
+            description = $2, 
+            bedrooms = $3, 
+            bathrooms = $4, 
+            city = $5, 
+            state_id = $6, 
+            zipcode = $7, 
+            parking = $8, 
+            pets = $9, 
+            heating = $10, 
+            cooling = $11, 
+            availablefrom = $12, 
+            price = $13, 
+            wifi = $14
+            WHERE id = $15
+            RETURNING *
+        `,
+        [editRental.title, editRental.description, editRental.bedrooms, editRental.bathrooms, editRental.city, editRental.state_id, editRental.zipcode, editRental.parking, editRental.pets, editRental.heating, editRental.cooling, editRental.availablefrom, editRental.price, editRental.wifi, id]
+    )
+}
+
 RentalsObject.destroy = (id) => {
     return db.none(
         `
