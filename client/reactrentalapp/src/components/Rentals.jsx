@@ -45,6 +45,7 @@ class Rentals extends Component {
       this.handleCoolingChange = this.handleCoolingChange.bind(this);
       this.handleAvailablefromChange = this.handleAvailablefromChange.bind(this);
       this.handleWifiChange = this.handleWifiChange.bind(this);
+      this.handleRentalEdit = this.handleRentalEdit.bind(this);
       this.handleDeleteButton = this.handleDeleteButton.bind(this);
       this.fetchAllRentals = this.fetchAllRentals.bind(this);
     }
@@ -146,7 +147,9 @@ class Rentals extends Component {
         if (this.state.apiLoaded === true) {
             return <RentalsComp 
                         completelist={this.state.completelist} 
-                        handleDeleteButton={this.handleDeleteButton}/> 
+                        handleRentalEdit={this.handleRentalEdit}
+                        handleDeleteButton={this.handleDeleteButton}
+                        /> 
         }
         else {
             return <p>Loading</p>
@@ -223,7 +226,39 @@ class Rentals extends Component {
         console.log('error');
       }
     })
-    }
+}
+
+     handleRentalEdit(event) {
+      event.preventDefault();
+      console.log(event.target.id.value, "this value man");
+      fetch(`api/listofrentals/${event.target.id.value}`, {
+          method: 'PUT',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+              title: event.target.title.value,
+              description: event.target.description.value,
+              bedrooms: event.target.bedrooms.value,
+              bathrooms: event.target.bathrooms.value,
+              city: event.target.city.value,
+              state_id: event.target.state_id.value,
+              zipcode: event.target.zipcode.value,
+              parking: event.target.parking.value,
+              pets: event.target.pets.value,
+              heating: event.target.heating.value,
+              cooling: event.target.cooling.value,
+              availablefrom: event.target.availablefrom.value,
+              price: event.target.price.value,
+              wifi: event.target.wifi.value,
+          })
+      })
+      .then((response)=> {
+          if (response.status === 200) {
+              console.log("edited");
+              this.fetchAllRentals();
+          }
+      })
+    
+     }
 
     handleDeleteButton(idToBeDeleted) {
         fetch(`api/listofrentals/${idToBeDeleted}`, {

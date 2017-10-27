@@ -28,7 +28,7 @@ class SingleRental extends Component {
         }
         this.openEditModal = this.openEditModal.bind(this);
         this.closeEditModal = this.closeEditModal.bind(this);
-        this.handleRentalEdit = this.handleRentalEdit.bind(this);
+        //this.handleRentalEdit = this.handleRentalEdit.bind(this);
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handlePriceChange = this.handlePriceChange.bind(this);
@@ -113,37 +113,7 @@ class SingleRental extends Component {
     this.setState({ showModal: true });
   };
 
-  handleRentalEdit(event) {
-      event.preventDefault();
-      fetch(`api/listofrentals/${this.props.singledatas.id}`, {
-          method: 'PUT',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-              title: event.target.title.value,
-              description: event.target.description.value,
-              bedrooms: event.target.bedrooms.value,
-              bathrooms: event.target.bathrooms.value,
-              city: event.target.city.value,
-              state_id: event.target.state_id.value,
-              zipcode: event.target.zipcode.value,
-              parking: event.target.parking.value,
-              pets: event.target.pets.value,
-              heating: event.target.heating.value,
-              cooling: event.target.cooling.value,
-              availablefrom: event.target.availablefrom.value,
-              price: event.target.price.value,
-              wifi: event.target.wifi.value,
-          })
-      })
-      .then((response) => {
-            //console.log(response);
-            return response.json()
-                })
-                .then((fullrental)=> {
-                    //console.log(fullrental)
-                })
-
-  }
+ 
     render() {
         return (
             <div>
@@ -157,7 +127,9 @@ class SingleRental extends Component {
                         <hr />
 
                         <h4>Overflowing text to show scroll behavior</h4>
-                        <form onSubmit={this.handleRentalEdit}>
+                        <form onSubmit={(event) => {this.props.handleRentalEdit(event)
+                                                    {this.closeEditModal()}
+                                                }} >
                             <label>Title: *</label><br/><input type="text" name="title" value={this.state.inputTitleValue} placeholder="Title" onChange={this.handleTitleChange} pattern=".{20,144}" required title="20 to 144 characters" /><br/>
                             <label>Description: *</label><br/><textarea name="description" value={this.state.inputDescriptionValue} onChange={this.handleDescriptionChange} placeholder="Description of the property" pattern=".{20,500}" required title="20 to 500 characters" /><br/>
                             <label>Bedrooms: </label><br/><select name="bedrooms" value={this.state.inputBedroomsValue} onChange={this.handleBedroomsChange}>
@@ -264,6 +236,12 @@ class SingleRental extends Component {
                             </div>
                             <label>Available from : </label><br/><input type="date" name="availablefrom" value={this.state.inputAvailablefromValue} onChange={this.handleAvailablefromChange} /><br/>
                             <label>Price ($) : *</label><br/><input name="price" value={this.state.inputPriceValue} onChange={this.handlePriceChange} type="number" required /><br/>
+                            <input
+                                style={{visibility: 'hidden'}}
+                                readOnly
+                                name="id"
+                                value={this.props.singledatas.id}
+                            />
                             <input type="submit" value="Edit" />
                         </form>
                     </Modal.Body>
