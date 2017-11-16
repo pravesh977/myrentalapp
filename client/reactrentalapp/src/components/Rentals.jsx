@@ -14,6 +14,7 @@ class Rentals extends Component {
             showModal: false,
             inputTitleValue: '',
             inputDescriptionValue: '',
+            inputImageUrl: '',
             inputPriceValue: '',
             inputBedroomsValue: '',
             inputBathroomsValue: '',
@@ -33,6 +34,7 @@ class Rentals extends Component {
       this.handleListingSubmit = this.handleListingSubmit.bind(this);
       this.handleTitleChange = this.handleTitleChange.bind(this);
       this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+      this.handleImageUrlChange = this.handleImageUrlChange.bind(this);
       this.handlePriceChange = this.handlePriceChange.bind(this);
       this.handleBedroomsChange = this.handleBedroomsChange.bind(this);
       this.handleBathroomsChange = this.handleBathroomsChange.bind(this);
@@ -58,6 +60,10 @@ class Rentals extends Component {
     handleDescriptionChange(event) {
         this.setState({inputDescriptionValue: event.target.value});
         console.log("descr")
+    }
+
+    handleImageUrlChange(event) {
+        this.setState({inputImageUrl: event.target.value});
     }
 
     handlePriceChange(event) {
@@ -164,6 +170,7 @@ class Rentals extends Component {
             body: JSON.stringify({
                 title: event.target.title.value,
                 description: event.target.description.value,
+                imageurl: event.target.imageurl.value,
                 bedrooms: event.target.bedrooms.value,
                 bathrooms: event.target.bathrooms.value,
                 city: event.target.city.value,
@@ -186,6 +193,7 @@ class Rentals extends Component {
         const newRental = {
           title: responseJson.jsonAfterAdding.title,
           description: responseJson.jsonAfterAdding.description,
+          imageurl: responseJson.jsonAfterAdding.imageurl,
           bedrooms: responseJson.jsonAfterAdding.bedrooms,
           bathrooms: responseJson.jsonAfterAdding.bathrooms,
           city: responseJson.jsonAfterAdding.city,
@@ -205,6 +213,7 @@ class Rentals extends Component {
             completelist: prevState.completelist.concat(newRental),
             inputTitleValue: '',
             inputDescriptionValue: '',
+            inputImageUrl: '',
             inputPriceValue: '',
             inputBedroomsValue: '',
             inputBathroomsValue: '',
@@ -237,6 +246,7 @@ class Rentals extends Component {
           body: JSON.stringify({
               title: event.target.title.value,
               description: event.target.description.value,
+              imageurl: event.target.imageurl.value,
               bedrooms: event.target.bedrooms.value,
               bathrooms: event.target.bathrooms.value,
               city: event.target.city.value,
@@ -278,7 +288,7 @@ class Rentals extends Component {
                         <input type="text" name="location" placeholder="location" />
                         <input type="text" name="description" placeholder="description" />
                         <input type="submit" value="Submit" /> 
-                        </form>
+                    </form>
                 </div>
                 <div className="listingdiv">
                     <p>Everything goes here</p>
@@ -303,6 +313,7 @@ class Rentals extends Component {
                     handleListingSubmit={this.handleListingSubmit}
                     inputTitleValue={this.state.inputTitleValue}
                     inputDescriptionValue={this.state.inputDescriptionValue}
+                    inputImageUrl={this.state.inputImageUrl}
                     inputPriceValue={this.state.inputPriceValue}
                     inputBedroomsValue={this.state.inputBedroomsValue}
                     inputBathroomsValue={this.state.inputBathroomsValue}
@@ -318,6 +329,7 @@ class Rentals extends Component {
 
                     handleTitleChange={this.handleTitleChange}
                     handleDescriptionChange={this.handleDescriptionChange}
+                    handleImageUrlChange={this.handleImageUrlChange}
                     handlePriceChange={this.handlePriceChange}
                     handleBedroomsChange={this.handleBedroomsChange}
                     handleBathroomsChange={this.handleBathroomsChange}

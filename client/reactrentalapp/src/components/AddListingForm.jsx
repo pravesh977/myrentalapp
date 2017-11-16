@@ -8,6 +8,7 @@ class AddListingForm extends Component {
                 <form onSubmit={this.props.handleListingSubmit}>
                     <label>Title: *</label><br/><input type="text" name="title" value={this.props.inputTitleValue} placeholder="Title" onChange={this.props.handleTitleChange} pattern=".{20,144}" required title="20 to 144 characters" /><br/>
                     <label>Description: *</label><br/><textarea name="description" value={this.props.inputDescriptionValue} onChange={this.props.handleDescriptionChange} placeholder="Description of the property" pattern=".{20,500}" required title="20 to 500 characters" /><br/>
+                    <label>Image Url: *</label><br/><input type="text" name="imageurl" value={this.props.inputImageUrl} placeholder="Image Url" onChange={this.props.handleImageUrlChange}/><br/>
                     <label>Bedrooms: </label><br/><select name="bedrooms" value={this.props.inputBedroomsValue} onChange={this.props.handleBedroomsChange}>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>

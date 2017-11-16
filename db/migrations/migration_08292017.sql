@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS rentaltable (
     id BIGSERIAL PRIMARY KEY,
     title VARCHAR(255),
     description TEXT,
+    imageurl VARCHAR(1024),
     bedrooms INTEGER,
     bathrooms INTEGER,
     city VARCHAR(255),

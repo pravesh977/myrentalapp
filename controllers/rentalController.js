@@ -39,6 +39,7 @@ controller.create = (req, res) => {
     RentalsObject.create({
         title: req.body.title,
         description: req.body.description,
+        imageurl: req.body.imageurl,
         bedrooms: req.body.bedrooms,
         bathrooms: req.body.bathrooms,
         city: req.body.city,
@@ -85,6 +86,7 @@ controller.update = (req, res) => {
     RentalsObject.update({
         title: req.body.title,
         description: req.body.description,
+        imageurl: req.body.imageurl,
         bedrooms: req.body.bedrooms,
         bathrooms: req.body.bathrooms,
         city: req.body.city,

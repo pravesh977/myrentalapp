@@ -13,6 +13,7 @@ class SingleRental extends Component {
             showModal: false,
             inputTitleValue: this.props.singledatas.title,
             inputDescriptionValue: this.props.singledatas.description,
+            inputImageUrl: this.props.singledatas.imageurl,
             inputPriceValue: this.props.singledatas.price,
             inputBedroomsValue: this.props.singledatas.bedrooms,
             inputBathroomsValue: this.props.singledatas.bathrooms,
@@ -30,6 +31,7 @@ class SingleRental extends Component {
         this.closeEditModal = this.closeEditModal.bind(this);
         //this.handleRentalEdit = this.handleRentalEdit.bind(this);
         this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleImageUrlChange = this.handleImageUrlChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handlePriceChange = this.handlePriceChange.bind(this);
         this.handleBedroomsChange = this.handleBedroomsChange.bind(this);
@@ -53,6 +55,11 @@ class SingleRental extends Component {
     handleDescriptionChange(event) {
         this.setState({inputDescriptionValue: event.target.value});
         console.log("descr")
+    }
+
+    handleImageUrlChange(event) {
+        this.setState({inputImageUrl: event.target.value});
+        console.log("changing image")
     }
 
     handlePriceChange(event) {
@@ -132,6 +139,7 @@ class SingleRental extends Component {
                                                 }} >
                             <label>Title: *</label><br/><input type="text" name="title" value={this.state.inputTitleValue} placeholder="Title" onChange={this.handleTitleChange} pattern=".{20,144}" required title="20 to 144 characters" /><br/>
                             <label>Description: *</label><br/><textarea name="description" value={this.state.inputDescriptionValue} onChange={this.handleDescriptionChange} placeholder="Description of the property" pattern=".{20,500}" required title="20 to 500 characters" /><br/>
+                            <label>Image Url: *</label><br/><input type="text" name="imageurl" value={this.state.inputImageUrl} placeholder="Image Url" onChange={this.handleImageUrlChange}/><br/>
                             <label>Bedrooms: </label><br/><select name="bedrooms" value={this.state.inputBedroomsValue} onChange={this.handleBedroomsChange}>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -253,6 +261,7 @@ class SingleRental extends Component {
                 <div className="singlecomp">
                     <li>{this.props.singledatas.title}</li>
                     <li>{this.props.singledatas.description}</li>
+                    <img src={this.props.singledatas.imageurl} alt={this.props.singledatas.title} />
                     <li>Price: {this.props.singledatas.price}</li>
                     <li>Bedrooms: {this.props.singledatas.bedrooms}</li>
                     <li>Bathroom: {this.props.singledatas.bathrooms}</li>

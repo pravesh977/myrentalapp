@@ -30,6 +30,7 @@
   width: 20%;
   background: orange;
   height: 100vh;
+  /*position: fixed;*/
 }
 
 .listingdiv {
@@ -47,4 +48,49 @@
 
 .singlecomp li {
   list-style-type: none;
+}
+
+body, html {
+  height: 100%;
+  margin: 0px;
+  line-height: 1.8em;
+}
+
+.parallaxdiv1 {
+  background-image: url('./imagefolder/newyorkimage.jpg');
+  min-height: 100%;
+}
+
+.parallaxdiv2 {
+  background-image: url('./imagefolder/losangeles.jpg');
+}
+
+.parallaxdiv3 {
+  background-image: url('./imagefolder/miami.jpg');
+}
+.parallaxdiv1, .parallaxdiv2, .parallaxdiv3 {
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  opacity: 0.80;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 500px;
+  text-align: center;
+}
+
+.sectiondiv {
+  text-align: center;
+}
+
+.singlecomp img, .mainsingleid img {
+  width: 100%;
+}
+
+.mainsingleid {
+  list-style-type: none;
+}
+
+.rentalbackground {
+  width: 100%;
 }

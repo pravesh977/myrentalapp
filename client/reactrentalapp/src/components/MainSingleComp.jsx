@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 class MainSingleComp extends Component {
     render() {
         return (
-            <div>
+            <div className="mainsingleid">
                 <li>{this.props.singleData.title}</li>
                 <li>{this.props.singleData.description}</li>
+                <img src={this.props.singleData.imageurl} alt={this.props.singleData.title} />
                 <li>Price: {this.props.singleData.price}</li>
                 <li>Bedrooms: {this.props.singleData.bedrooms}</li>
                 <li>Bathroom: {this.props.singleData.bathrooms}</li>
