@@ -9,8 +9,8 @@ class Home extends Component {
         return (
             <div>
                 <Header />
-                <Link to="/rentals">Rentals man</Link>
-                <p>some nice pics and parallax scroll here</p>
+                <i className="fa fa-gamepad" aria-hidden="true"></i>
+                <Link to="/rentals" className="mainrentalsbutton">Rentals man</Link>
                 <div className="parallaxdiv1">
                    <h4>picback lfiajsdlfj alsdjfalkdsjf </h4>
                     <p className="parallaxtext">
