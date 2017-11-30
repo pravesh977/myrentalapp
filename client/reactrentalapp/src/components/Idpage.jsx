@@ -39,8 +39,7 @@ class Idpage extends Component {
     render() {
         return (
             <div>
-                <p>this is the id page solo</p>
-                <p>{this.props.match.params.propertyid}</p>
+                {/* <p>{this.props.match.params.propertyid}</p> */}
                 {this.conditionalSingleRent()}
             </div>
 

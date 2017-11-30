@@ -4,7 +4,8 @@ class RentalsComp extends Component {
     render() {
         return (
             <div>
-                <h2> React Component for both list and single view</h2>
+                <h2 style={{textAlign: "center"}}>These are the newest listings submitted by other users</h2>
+                <hr/>
                 <ul>
                     {this.props.completelist.map((elem)=>{
                         return (

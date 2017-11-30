@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 class Header extends Component {
     render() {
         return (
-            <div>
-                <h2> this is a new header</h2>
+            <div className="mainheader">
+                <h2>Welcome to the best place to find your next home.</h2>
             </div>
 
         );

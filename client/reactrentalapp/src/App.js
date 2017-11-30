@@ -9,8 +9,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 class App extends Component {

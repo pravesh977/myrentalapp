@@ -3,7 +3,6 @@ import RentalsComp from './RentalsComp';
 import AddListingForm from './AddListingForm';
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { OverlayTrigger } from 'react-bootstrap';
 class Rentals extends Component {
 
   constructor(props) {
@@ -228,9 +227,7 @@ class Rentals extends Component {
             inputWifiValue: ''
             } 
         })
-        {
-        this.closeModal();
-        }
+        {this.closeModal()}
       } else {
         console.log('error');
       }

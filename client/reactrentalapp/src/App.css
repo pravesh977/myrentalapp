@@ -17,12 +17,19 @@
   margin: 10px;
 }*/
 
+body, html {
+  height: 100%;
+  margin: 0px;
+  line-height: 1.8em;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
 .clearingdiv {
   clear:both;
 }
 
 .rentalsmain {
-  background: pink;
+  /* background: pink; */
   display: flex;
 }
 
@@ -35,26 +42,53 @@
 
 .listingdiv {
   width: 75%;
-  background: green;
+  /* background: green; */
 }
 
 .singlecomp {
-  border: 5px black solid;
+  border-bottom: 5px black solid;
+  margin : 30px 0px 30px 0px;
+  padding: 10px;
+  line-height: 250%;
+  font-size: 20px;
 }
 
 /*.singlecomp:hover {
   font-size: 50px;
 }*/
 
+.singlecomp .titleclass {
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 32px;
+}
+
+.singlecomp .descriptionclass {
+  font-size: 24px;
+}
+
+.singlecomp img {
+  max-width: 320px;
+  height: 240px;
+}
+
 .singlecomp li {
   list-style-type: none;
 }
 
-body, html {
-  height: 100%;
-  margin: 0px;
-  line-height: 1.8em;
-  font-family: 'Poppins', sans-serif;
+.rentalicons {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.rentalfeatures {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.rentalfeatures li {
+  display: flex;
 }
 
 .parallaxdiv1 {
@@ -80,6 +114,13 @@ body, html {
   text-align: center;
 }
 
+.parallaxdiv1 * , .parallaxdiv2 * , .parallaxdiv3 * {
+  color: #85EAFF;
+  font-size: 25px;
+  font-weight: bolder;
+  background: #301130;
+  display: inline-block;
+}
 .sectiondiv {
   text-align: center;
 }
@@ -97,6 +138,51 @@ body, html {
 }
 
 .mainrentalsbutton {
+  font-size: 30px;
+  /* display: inline-block; */
+}
 
-  background: red;
+.fa-building-o {
+  /* display: inline-block; */
+  font-size: 200px;
+  background: yellow;
+}
+
+.rentalsbuttonsdiv {
+  text-align:center;
+}
+
+.fa-building-o:hover {
+  color: yellow;
+  background: grey;
+  transition: 0.5s;
+}
+
+.mainheader {
+  text-align: center;
+}
+
+.mainsingleid {
+  font-size: 24px;
+  background: pink;
+  padding: 20px;
+  line-height: 200%;
+}
+
+.mainsingleid .titleclass {
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 32px;
+}
+
+.mainsingleid .descriptionclass {
+  font-size: 24px;
+}
+
+.mainsingleid img {
+ max-width: 80%;
+ text-align: center;
+ margin: 0 auto;
+ display: block;
+
 }
