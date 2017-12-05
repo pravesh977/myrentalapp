@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 
 const listofrentals = require('./routes/listofrentals');
 const dummyjson = require('./routes/dummyjson');
+const emailroute = require('./routes/emailroute');
+
 app.listen(port);
 
 
@@ -24,6 +26,7 @@ app.get('/api', (req, res)=> {
 
 app.use('/api/listofrentals', listofrentals);
 app.use('/dummyjson', dummyjson);
+app.use('/emailroute', emailroute);
 app.get('/anything/:anythingYouWant', function(req, res){
   res.send(
     `<h1> Your wish, my command! You requested: ${req.params.anythingYouWant}</h2>`

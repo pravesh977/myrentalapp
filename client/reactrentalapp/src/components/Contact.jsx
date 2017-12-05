@@ -8,9 +8,17 @@ class Contact extends Component {
         super();
         this.state = {
             showContactModal: false,
+            inputEmailAddress: '',
+            inputSubject: '',
+            inputMessage: '',
+            
         }
         this.openContactModal = this.openContactModal.bind(this);
         this.closeContactModal = this.closeContactModal.bind(this);
+        this.handleInputEmailAddressChange = this.handleInputEmailAddressChange.bind(this);
+        this.handleInputSubjectChange = this.handleInputSubjectChange.bind(this);
+        this.handleInputMessageChange = this.handleInputMessageChange.bind(this);
+        this.handleEmailSubmit = this.handleEmailSubmit.bind(this);
     }
 
     openContactModal() {
@@ -25,6 +33,34 @@ class Contact extends Component {
         })
     }
 
+    handleInputEmailAddressChange(event) {
+        //console.log("em add");
+        this.setState({inputEmailAddress: event.target.value})
+    }
+
+    handleInputSubjectChange(event) {
+        this.setState({inputSubject: event.target.value});
+        //console.log("em sub");
+    }
+
+    handleInputMessageChange(event) {
+        this.setState({inputMessage: event.target.value});
+        //console.log("em mess");
+    }
+
+    handleEmailSubmit(event) {
+        event.preventDefault();
+            fetch('emailroute',{
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    emailid: event.target.emailid.value,
+                    emailsubject: event.target.emailsubject.value,
+                    emailmessage: event.target.emailmessage.value,
+                })
+            })
+            this.closeContactModal();
+    }
 
     render() {
         return (
@@ -43,12 +79,12 @@ class Contact extends Component {
                         <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <h4>Text in a modal</h4>
-                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-                        <hr />
-
-                        <h4>Overflowing text to show scroll behavior</h4>
-                        
+                        <form onSubmit={this.handleEmailSubmit}>
+                            <input type="email" name="emailid" placeholder="Email Address" value={this.state.inputEmailAddress} onChange={this.handleInputEmailAddressChange} /><br/>
+                            <input type="text" name="emailsubject" placeholder="Subject" value={this.state.inputSubject} onChange={this.handleInputSubjectChange} /><br/>
+                            <textarea name="emailmessage" placeholder="Message" value={this.state.inputMessage} onChange={this.handleInputMessageChange} /><br/>
+                            <input type="submit" value="Send Email"/>
+                        </form>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.closeContactModal}>Close</Button>
