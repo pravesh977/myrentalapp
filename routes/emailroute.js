@@ -24,7 +24,8 @@ myrouter.post('/', (req, res)=>{
         // secure: false,
         auth: {
             user: 'praveshtesting@gmail.com',
-            pass: process.env.emailpass,
+            // pass: process.env.emailpass,
+            pass: 'Justtesting',
         },
         tls:{
             rejectUnauthorized:false
