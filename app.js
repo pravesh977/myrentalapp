@@ -36,7 +36,7 @@ app.use('/emailroute', emailroute);
 
 
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client/reactrentalapp', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client/reactrentalapp/build', 'index.html'));
 });
 
 console.log(`nepali roommate server running on port ${port}`);
