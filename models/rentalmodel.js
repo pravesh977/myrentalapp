@@ -2,11 +2,12 @@ const db = require('../db/config');
 const RentalsObject = {};
 
 RentalsObject.findAll = () => {
-    return db.query('SELECT * FROM rentaltable');
+    // return db.query('SELECT * FROM rentaltable');
+    return db.query('SELECT rentaltable.id, rentaltable.title, rentaltable.description, rentaltable.imageurl, rentaltable.bedrooms, rentaltable.bathrooms, rentaltable.city, rentaltable.zipcode, rentaltable.parking, rentaltable.pets, rentaltable.heating, rentaltable.cooling, rentaltable.availablefrom, rentaltable.price, rentaltable.wifi, statestable.states FROM rentaltable JOIN statestable ON rentaltable.state_id=statestable.id');
 };
 
 RentalsObject.findById = (id) => {
-    return db.oneOrNone('SELECT * FROM rentaltable WHERE id = $1', [id]);
+    return db.oneOrNone('SELECT rentaltable.id, rentaltable.title, rentaltable.description, rentaltable.imageurl, rentaltable.bedrooms, rentaltable.bathrooms, rentaltable.city, rentaltable.zipcode, rentaltable.parking, rentaltable.pets, rentaltable.heating, rentaltable.cooling, rentaltable.availablefrom, rentaltable.price, rentaltable.wifi, statestable.states FROM rentaltable JOIN statestable ON rentaltable.state_id=statestable.id WHERE rentaltable.id = $1', [id]);
 };
 
 RentalsObject.create = (createrental) => {

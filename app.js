@@ -15,7 +15,7 @@ app.listen(port);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'client/build')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -27,15 +27,15 @@ app.get('/api', (req, res)=> {
 app.use('/api/listofrentals', listofrentals);
 app.use('/dummyjson', dummyjson);
 app.use('/emailroute', emailroute);
-app.get('/anything/:anythingYouWant', function(req, res){
-  res.send(
-    `<h1> Your wish, my command! You requested: ${req.params.anythingYouWant}</h2>`
-  );
-});
+// app.get('/anything/:anythingYouWant', function(req, res){
+//   res.send(
+//     `<h1> Your wish, my command! You requested: ${req.params.anythingYouWant}</h2>`
+//   );
+// });
 
 
 app.get('*', function(req, res) {
-  res.status(404).send({message: 'Oops! Not found.'});
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 console.log(`nepali roommate server running on port ${port}`);

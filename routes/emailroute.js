@@ -1,5 +1,6 @@
 const express = require('express');
 const myrouter = express.Router();
+//need to protect my password with env files and ignore it when pushing to github
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 

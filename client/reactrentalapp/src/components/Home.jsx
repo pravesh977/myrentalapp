@@ -14,6 +14,7 @@ class Home extends Component {
                 <div className="rentalsbuttonsdiv">
                     <Link to="/rentals"><i className="fa fa-building-o fa-5x" aria-hidden="true"></i></Link><br/>
                     <Link to="/rentals" className="mainrentalsbutton">View Available Rentals</Link>
+                    <h2>Authentication and Search features coming soon</h2>
                 </div>
                 <div className="parallaxdiv1">
                    <h4>picback lfiajsdlfj alsdjfalkdsjf </h4>

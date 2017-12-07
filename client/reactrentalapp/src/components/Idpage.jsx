@@ -12,6 +12,7 @@ class Idpage extends Component {
         }
     }
 
+    //api.openweathermap.org/data/2.5/weather?q={city name}
     componentDidMount() {
         //fetch('./../api/listofrentals/2')
         fetch(`/api/listofrentals/${this.props.match.params.propertyid}`)
@@ -20,7 +21,7 @@ class Idpage extends Component {
                 return response.json()
             })
             .then((singlerent)=>{
-                //console.log(singlerent)
+                //console.log(singlerent, "thi sis single")
                 this.setState({
                     singleData: singlerent.rentalsData,
                     apiLoaded: true

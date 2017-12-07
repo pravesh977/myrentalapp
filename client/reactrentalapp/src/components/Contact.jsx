@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './Header';
+// import Header from './Header';
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 
@@ -64,8 +64,8 @@ class Contact extends Component {
 
     render() {
         return (
-            <div>
-                <Header />
+            <div className="contactdiv">
+                {/* <Header /> */}
                 <h2>Feel free to message me and I will get back to you as soon as possible</h2>
                 <Button
                     bsStyle="primary"
@@ -76,10 +76,10 @@ class Contact extends Component {
                 
                 <Modal show={this.state.showContactModal} onHide={this.closeContactModal}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>Hello, Please leave your message :)</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <form onSubmit={this.handleEmailSubmit}>
+                        <form onSubmit={this.handleEmailSubmit} className="contactform">
                             <input type="email" name="emailid" placeholder="Email Address" value={this.state.inputEmailAddress} onChange={this.handleInputEmailAddressChange} /><br/>
                             <input type="text" name="emailsubject" placeholder="Subject" value={this.state.inputSubject} onChange={this.handleInputSubjectChange} /><br/>
                             <textarea name="emailmessage" placeholder="Message" value={this.state.inputMessage} onChange={this.handleInputMessageChange} /><br/>

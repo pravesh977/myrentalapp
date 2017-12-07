@@ -135,6 +135,7 @@ class Rentals extends Component {
                 })
                 .then((fullrental)=> {
                  //console.log(fullrental, "all the rentals")
+                 debugger
                 //  this.setState({
                 //      completelist: fullrental.rentalsData,
                 //      apiLoaded: true,
@@ -157,7 +158,13 @@ class Rentals extends Component {
                         /> 
         }
         else {
-            return <p>Loading</p>
+            return (
+                <div>
+                    {/* <p>Loading...</p> */}
+                    <i className="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                    <span className="sr-only">Loading...</span>
+                </div>
+            )
         }
     }
 
@@ -288,7 +295,7 @@ class Rentals extends Component {
                     </form>
                 </div>
                 <div className="listingdiv">
-                    <p>Everything goes here</p>
+                    {/* <p>Everything goes here</p> */}
                     <Button
                             bsStyle="primary"
                             bsSize="large"

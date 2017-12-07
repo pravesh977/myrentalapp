@@ -28,6 +28,30 @@ body, html {
   clear:both;
 }
 
+@media only screen and (max-width: 500px) {
+
+  .singlecomp button {
+    margin-bottom: 5px;
+  }
+  
+  footer ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;  
+  }
+
+  form {
+    background: lightblue;
+  }
+  .rentalfeatures {
+    flex-wrap: wrap;
+  }
+}
+
+.mainappdiv {
+  height: 100vh;
+}
+
 .rentalsmain {
   /* background: pink; */
   display: flex;
@@ -77,18 +101,20 @@ body, html {
 }
 
 .rentalicons {
-  width: 20%;
+  position: relative;
   display: flex;
   justify-content: space-around;
+  width: 20%;
+  margin: 0 auto;
 }
 
 .rentalfeatures {
   width: 100%;
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
 }
 .rentalfeatures li {
-  display: flex;
+  /* display: flex; */
 }
 
 .parallaxdiv1 {
@@ -164,9 +190,11 @@ body, html {
 
 .mainsingleid {
   font-size: 24px;
-  background: pink;
   padding: 20px;
   line-height: 200%;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .mainsingleid .titleclass {
@@ -184,5 +212,66 @@ body, html {
  text-align: center;
  margin: 0 auto;
  display: block;
-
 }
+
+.contactdiv {
+  /* text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh; */
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.contactform {
+  text-align: center;
+}
+
+.contactform * {
+  margin: 0px 0px 20px 0px;
+}
+
+footer {
+  background: black;
+  position: relative;
+  bottom: 0px;
+}
+
+footer ul li {
+  list-style-type: none;
+  font-size: 28px;
+}
+
+footer ul li a:hover {
+  color: white;
+  font-size: 30px;
+  transition: 1s;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+footer h2 {
+  color: white;
+  text-align: center;
+}
+
+.singlebuttons * {
+  text-align: center;
+}
+
+.singlebuttons a {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.listingdiv button {
+  margin: 0 auto;
+  display: block;
+}
+

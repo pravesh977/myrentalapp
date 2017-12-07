@@ -48,22 +48,22 @@ class SingleRental extends Component {
 
     handleTitleChange(event) {
         this.setState({inputTitleValue: event.target.value});
-        console.log("changing")
+        //console.log("changing")
     }
 
     handleDescriptionChange(event) {
         this.setState({inputDescriptionValue: event.target.value});
-        console.log("descr")
+        //console.log("descr")
     }
 
     handleImageUrlChange(event) {
         this.setState({inputImageUrl: event.target.value});
-        console.log("changing image")
+        //console.log("changing image")
     }
 
     handlePriceChange(event) {
         this.setState({inputPriceValue: event.target.value});
-        console.log("this is priceyyyy")
+        //console.log("this is priceyyyy")
     }
 
     handleBedroomsChange(event) {
@@ -108,7 +108,7 @@ class SingleRental extends Component {
 
     handleWifiChange(event) {
         this.setState({inputWifiValue: event.target.value});
-        console.log("this is wifi")
+        //console.log("this is wifi")
     }
 
   closeEditModal() {
@@ -267,8 +267,10 @@ class SingleRental extends Component {
                         <li><i className="fa fa-bath" aria-hidden="true"></i> {this.props.singledatas.bathrooms}</li>
                     </div>
                     <li>City: {this.props.singledatas.city}</li>
+                    <li>State: {this.props.singledatas.states}</li>
+                    {/*
                     <li>State: {this.props.singledatas.state_id}</li>
-                    {/*<li>Zipcode: {this.props.singledatas.zipcode}</li>
+                    <li>Zipcode: {this.props.singledatas.zipcode}</li>
                     <li>Parking Availability: {this.props.singledatas.parking}</li>
                     <li>Pets Allowed: {this.props.singledatas.pets}</li>
                     <li>Heating: {this.props.singledatas.heating}</li>
@@ -276,9 +278,11 @@ class SingleRental extends Component {
                     <li>Availability date: {this.props.singledatas.availablefrom}</li>
                     <li>Wifi Availability: {this.props.singledatas.wifi}</li>
                     <li>Property ID: {this.props.singledatas.id}</li> */}
-                    <button onClick={this.openEditModal}>Edit This</button>
-                    <button onClick={()=> {this.props.handleDeleteButton(this.props.singledatas.id)}}> Delete Listing</button>
-                    <Link to={`/rentals/${this.props.singledatas.id}`}>See Property Details</Link>
+                    <div className="singlebuttons">
+                        <button onClick={this.openEditModal}>Edit This</button><br/>
+                        <button onClick={()=> {this.props.handleDeleteButton(this.props.singledatas.id)}}> Delete Listing</button>
+                        <Link to={`/rentals/${this.props.singledatas.id}`}>See Property Details</Link>
+                    </div>
                 </div>
             </div>
 
