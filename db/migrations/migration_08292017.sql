@@ -1,4 +1,4 @@
-\connect rentalsdatabase
+
 
 CREATE TABLE IF NOT EXISTS statestable (
     id BIGSERIAL PRIMARY KEY,
