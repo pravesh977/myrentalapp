@@ -15,7 +15,7 @@ app.listen(port);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/static', express.static(path.join(__dirname, 'client/build')));
+app.use('/static', express.static(path.join(__dirname, 'client/reactrentalapp/build')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -35,7 +35,7 @@ app.use('/emailroute', emailroute);
 
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client/reactrentalapp/build', 'index.html'));
 });
 
 console.log(`nepali roommate server running on port ${port}`);
